@@ -1,8 +1,12 @@
 package com.tool.plaform.domain;
 
-public class TestPlaform {
+import org.springframework.web.bind.annotation.ModelAttribute;
 
-    public  String plaform;
+import java.io.Serializable;
+
+public class TestPlaform implements Serializable {
+
+    public String plaform;
     public String uuid;
     public String owner;
     public String remark;
