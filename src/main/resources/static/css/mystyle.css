@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+.head-top {
+    font-size: 20px;
+}
+
+.data {
+    margin-top: 30px;
+}
+
+.search {
+    margin-top: 75px;
+}
+
+.select{
+    margin-left: 10px;
+    margin-top: 75px;
+}
