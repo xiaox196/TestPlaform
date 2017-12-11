@@ -3,84 +3,87 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Wedefend测试平台</title>
+    <title>测试平台</title>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../static/css/mystyle.css"/>
 </head>
-<body style="margin-left: 50px">
+<body    >
 
+<div id="contains">
 
-<div class="navdiv">
-    <nav class="navbar navbar-default navbar-fixed-top head-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand btn-lg" href="#"><span class="glyphicon glyphicon-home"></span>首页</a>
+    <div class="navdiv">
+        <nav class="navbar navbar-default navbar-fixed-top head-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand btn-lg" href="#"><span class="glyphicon glyphicon-home"></span>首页</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#"><span class="glyphicon glyphicon-lock"></span>设备列表</a></li>
+                    <li><a><span class="glyphicon glyphicon-th-list"></span>测试平台</a></li>
+                    <li><a th:href="@{/mock}"><span class="glyphicon glyphicon-asterisk"></span>Mock平台</a></li>
+                    <li><a><span class="glyphicon glyphicon-road"></span>接口测试平台</a></li>
+                    <li><a><span class="glyphicon glyphicon-cog"></span>注册</a></li>
+                </ul>
             </div>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#"><span class="glyphicon glyphicon-lock"></span>设备列表</a></li>
-                <li><a><span class="glyphicon glyphicon-th-list"></span>测试平台</a></li>
-                <li><a><span class="glyphicon glyphicon-cog"></span>注册</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
+        </nav>
+    </div>
 
 
-<div class="search ">
-    <form class="form-inline" th:action="@{/search}" method="post" th:object="${testPlaform}">
-        <div class="form-group">
-            <label class="sr-only" for="exampleInputAmount">Iphone8</label>
-            <div class="input-group">
-                <div class="input-group-addon">手机型号</div>
-                <input type="text" class="form-control" id="exampleInputAmount" placeholder="" th:field="*{mobile}">
-
+    <div class="search">
+        <form class="form-inline" th:action="@{/search}" method="post" th:object="${testPlaform}">
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputAmount">Iphone8</label>
+                <div class="input-group">
+                    <div class="input-group-addon">手机型号</div>
+                    <input type="text" class="form-control" id="exampleInputAmount"  th:field="*{mobile}">
+                </div>
             </div>
-        </div>
-        <button type="submit" class="btn btn-primary">查询</button>
-    </form>
+            <button type="submit" class="btn btn-primary">查询</button>
+        </form>
+    </div>
+
+    <div class="data table-responsive">
+        <table class="table table-bordered table table-hover">
+            <thead>
+            <tr>
+                <th class="col-1">
+                    编号
+                </th>
+                <th class="col-2">
+                    厂家
+                </th>
+                <th class="col-2">
+                    型号
+                </th>
+                <th class="col-2">
+                    UUID
+                </th>
+                <th class="col-2">
+                    保管人
+                </th>
+
+                <th class="col-3">
+                    备注
+                </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <!--dddd-->
+            <tr th:each="mobile: ${mobileInfoList}">
+                <td>1</td>
+                <td th:text="${mobile.plaform}">mobile</td>
+                <td th:text="${mobile.mobile}">iphone 7</td>
+                <td th:text="${mobile.uuid}">TYKHJKHJK</td>
+                <td th:text="${mobile.owner}">xiaoming</td>
+                <td th:text="${mobile.remark}">未借出</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>
-
-<div class="data table-responsive">
-    <table class="table table-bordered table table-hover">
-        <thead>
-        <tr>
-            <th class="col-1">
-                编号
-            </th>
-            <th class="col-2">
-                厂家
-            </th>
-            <th class="col-2">
-                型号
-            </th>
-            <th class="col-2">
-                UUID
-            </th>
-            <th class="col-2">
-                保管人
-            </th>
-
-            <th class="col-3">
-                备注
-            </th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <!--dddd-->
-        <tr th:each="mobile: ${mobileInfoList}">
-            <td>1</td>
-            <td th:text="${mobile.mobile}">mobile</td>
-            <td th:text="${mobile.plaform}">iphone 7</td>
-            <td th:text="${mobile.uuid}">TYKHJKHJK</td>
-            <td th:text="${mobile.owner}">xiaoming</td>
-            <td th:text="${mobile.remark}">未借出</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-
 <script src="../static/js/jquery.min.js.min.js"></script>
 <script src="../static/js/bootstrap.min.js"></script>
 

@@ -23,6 +23,7 @@ public class TestMobileDao {
         BasicDBObject query=new BasicDBObject();
         query.append("型号",plaform);
         MongoCursor<Document> cursor=MongoDbUtils.find("TestMobile",query);
+        System.out.println(cursor);
         List<TestPlaform> list=parseTestPlaform(cursor);
         return list;
     }

@@ -24,7 +24,7 @@ public class PlaformController {
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public String searchByPlaform(TestPlaform testPlaform, Model model) {
-        List<TestPlaform> testPlaforms = dao.findTestMobileByPlaform(testPlaform.getPlaform());
+        List<TestPlaform> testPlaforms = dao.findTestMobileByPlaform(testPlaform.getMobile());
         model.addAttribute("mobileInfoList", testPlaforms);
         return "index";
     }

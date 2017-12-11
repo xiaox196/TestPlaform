@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 .head-top {
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .data {
@@ -15,4 +15,30 @@
 .select{
     margin-left: 10px;
     margin-top: 75px;
+}
+
+#container{
+    width:95%;
+}
+
+body{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.experl {
+    margin-top: 80px;
+    float: right;
+}
+.search-button{
+    float: left;
+
+
+}
+
+.input-group{
+    margin: 5px auto;
+}
+
+.show-result{
+    text-align: center;
 }

@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<!-- thymeleaf 导入 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>测试平台</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/css/mystyle.css"/>
+</head>
+<body >
+
+
+<div class="navdiv">
+    <nav class="navbar navbar-default navbar-fixed-top head-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand btn-lg" href="#"><span class="glyphicon glyphicon-home"></span>首页</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li ><a href="#" th:href="@{/}"><span class="glyphicon glyphicon-lock"></span>设备列表</a></li>
+                <li class="active"><a><span class="glyphicon glyphicon-th-list"></span>测试平台</a></li>
+                <li ><a th:href="@{/mock}"><span class="glyphicon glyphicon-asterisk"></span>Mock平台</a></li>
+                <li><a><span class="glyphicon glyphicon-road"></span>接口测试平台</a></li>
+                <li><a><span class="glyphicon glyphicon-cog"></span>注册</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+
+<div class="experl">
+    <div>
+        <!-- Split button -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger">环境选择</button>
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">I1</a></li>
+                <li><a href="#">I2</a></li>
+                <li><a href="#">I3</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="search-button ">
+    <div class="input-group col-lg-4  ">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+        <button class="btn btn-default" type="button">跑Stat</button>
+            <button class="btn btn-default" type="button">跑Apply</button>
+      </span>
+    </div><!-- /input-group -->
+
+    <div class="show-result">
+        <p>测试结果</p>
+    </div>
+</div><!-- /.col-lg-6 -->
+
+
+
+<!--<form class="form-inline">-->
+    <!--<div class="form-group">-->
+        <!--<label class="sr-only" >Amount (in dollars)</label>-->
+        <!--<div class="input-group">-->
+            <!--<div class="input-group-addon">$</div>-->
+            <!--<div>-->
+                <!--&lt;!&ndash; Split button &ndash;&gt;-->
+                <!--<div class="btn-group">-->
+                    <!--<button type="button" class="btn btn-danger">环境选择</button>-->
+                    <!--<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                        <!--<span class="caret"></span>-->
+                        <!--<span class="sr-only">Toggle Dropdown</span>-->
+                    <!--</button>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li><a href="#">I1</a></li>-->
+                        <!--<li><a href="#">I2</a></li>-->
+                        <!--<li><a href="#">I3</a></li>-->
+                        <!--<li role="separator" class="divider"></li>-->
+                        <!--<li><a href="#">Separated link</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="input-group-addon">.00</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<button type="submit" class="btn btn-primary">Transfer cash</button>-->
+<!--</form>-->
+<!--<div class="search">-->
+    <!--<div class="container-fluid">-->
+        <!--<div class="row">-->
+            <!--<div class="span2  col-xs-12 col-sm-3 col-md-2">-->
+                <!--<ul class="nav nav-pills nav-stacked">-->
+                    <!--<li class="active"><a href="#">Home</a></li>-->
+                    <!--<li><a href="#">Tutorials</a></li>-->
+                    <!--<li><a href="#">Practice Editor </a></li>-->
+                    <!--<li><a href="#">Gallery</a></li>-->
+                    <!--<li><a href="#">Contact</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+
+
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="../static/js/bootstrap.js"></script>
+
+</body>
+</html>
