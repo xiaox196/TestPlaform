@@ -1,12 +1,54 @@
 <!DOCTYPE HTML>
 <!-- thymeleaf 导入 -->
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>测试平台</title>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../static/css/mystyle.css"/>
 </head>
+
+<script type="text/javascript">
+
+
+      window.onload=function(){
+          var button_stat=document.getElementById("button_stat");
+          var search_input=document.getElementById("search_input");
+          var form = new FormData();
+          form.append("username",search_input.value);
+          button_stat.onclick= function(){
+
+              $.ajax({
+                  url:"http://127.0.0.1:4501/update",
+                  type:"POST",
+                  data:"id="+search_input.value,
+                  success:function(result){
+                      alert(result);
+                      if ( result.success ) {
+                          $("#showresult").text("删除数据成功");
+                      } else {
+                          $("#showresult").text("删除数据失败");
+
+                      }
+                  }
+              });
+//              htmlobj=$.ajax(
+//                  {
+//                      type:"POST",
+//                      url:"http://127.0.0.1:4501/update",
+//                      data:form,
+//                      success : function(result) {//返回数据根据结果进行相应的处理
+//                          if ( result.success ) {
+//                              $("#showresult").text("删除数据成功");
+//                          } else {
+//                              $("#showresult").text("删除数据失败");
+//
+//                          }
+//                      }
+//                  });
+          };
+      };
+</script>
 <body >
 
 
@@ -50,17 +92,19 @@
 </div>
 
 <div class="search-button ">
+<form name="form_button" method="post" action="" id="form_button">
     <div class="input-group col-lg-4  ">
-        <input type="text" class="form-control" placeholder="Search for...">
+        <input id="search_input" name="search_input" type="text" class="form-control" placeholder="loanId..." onclick="" >
         <span class="input-group-btn">
-        <button class="btn btn-default" type="button">跑Stat</button>
-            <button class="btn btn-default" type="button">跑Apply</button>
-      </span>
+            <button id="button_stat" name="button_stat" class="btn btn-default"  type="button">跑Stat</button>
+            <button id="button_apply" class="btn btn-default" type="button">跑Apply</button>
+        </span>
     </div><!-- /input-group -->
-
-    <div class="show-result">
-        <p>测试结果</p>
+    <div  class="show-result">
+        <p id="showresult">测试结果</p>
     </div>
+</form>
+
 </div><!-- /.col-lg-6 -->
 
 
@@ -109,9 +153,17 @@
 <!--</div>-->
 
 
+<script>
+    function  is_submit(value) {
+        var form_button=$("form_button");
+        if(value==1){
+            $("#form_button").attr("action","/update")
+            form_button.submit();
+        }
+    }
+</script>
 
-
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="../static/js/jquery.min.js"></script>
 <script src="../static/js/bootstrap.js"></script>
 
 </body>

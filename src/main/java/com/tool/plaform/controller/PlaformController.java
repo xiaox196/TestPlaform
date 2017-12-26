@@ -29,6 +29,11 @@ public class PlaformController {
         return "index";
     }
 
+    @RequestMapping(value = "/testshow",method = RequestMethod.GET)
+    public String show(){
+        return "test";
+    }
+
     @ModelAttribute
     TestPlaform setTestPlaform() {
         return new TestPlaform();
