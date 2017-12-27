@@ -9,6 +9,12 @@
 </head>
 <body >
 
+<script>
+    window.onload=function () {
+
+    };
+</script>
+
 
 <div class="navdiv">
     <nav class="navbar navbar-default navbar-fixed-top head-top">
@@ -19,7 +25,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li ><a href="#" th:href="@{/}"><span class="glyphicon glyphicon-lock"></span>设备列表</a></li>
-                <li><a><span class="glyphicon glyphicon-th-list"></span>测试平台</a></li>
+                <li><a th:href="@{/testshow}"><span class="glyphicon glyphicon-th-list"></span>测试平台</a></li>
                 <li class="active"><a><span class="glyphicon glyphicon-asterisk"></span>Mock平台</a></li>
                 <li><a><span class="glyphicon glyphicon-road"></span>接口测试平台</a></li>
                 <li><a><span class="glyphicon glyphicon-cog"></span>注册</a></li>
@@ -29,10 +35,54 @@
 </div>
 
 
+<div class="container" style="margin-top: 50px">
+
+    <div>
+        <div class="search">
+            <form class="form-inline" method="post" >
+                <div class="form-group">
+                    <label class="sr-only" for="exampleInputAmount">Iphone8</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">手机型号</div>
+                        <input type="text" class="form-control" id="exampleInputAmount"  >
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">查询</button>
+            </form>
+        </div>
+
+        <div>
+            <a  th:href="@{/addmock}">
+                <div >
+                    <button class="btn btn-primary btn-lg" type="button" >添加接口</button>
+                </div>
+            </a>
+        </div>
+
+    </div>
+    <div>
+        <table class="table table-bordered " style="">
+            <thead>
+            <tr>
+                <th>项目名</th>
+                <th>接口名</th>
+                <th>接口描述</th>
+                <th>接口路径</th>
+                <th>请求方式</th>
+                <th>类型</th>
+                <th>更新时间</th>
+                <th>是否校验</th>
+                <th>状态</th>
+                <th>创建人</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
 
 
-
-<script src="../static/js/jquery.min.js.min.js"></script>
+<script src="../static/js/jquery.min.js"></script>
 <script src="../static/js/bootstrap.min.js"></script>
 
 </body>

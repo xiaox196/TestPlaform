@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<!-- thymeleaf 导入 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>测试平台</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/css/mystyle.css"/>
+</head>
+<body >
+
+<div id="contains">
+
+    <div class="navdiv">
+        <nav class="navbar navbar-default navbar-fixed-top head-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand btn-lg" href="#"><span class="glyphicon glyphicon-home"></span>首页</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#"><span class="glyphicon glyphicon-lock"></span>设备列表</a></li>
+                    <li><a th:href="@{/testshow}"><span class="glyphicon glyphicon-th-list"></span>测试平台</a></li>
+                    <li><a th:href="@{/mock}"><span class="glyphicon glyphicon-asterisk"></span>Mock平台</a></li>
+                    <li><a><span class="glyphicon glyphicon-road"></span>接口测试平台</a></li>
+                    <li><a><span class="glyphicon glyphicon-cog"></span>注册</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="mockdata" style="margin-top: 75px">
+        <div>
+            <h3 style="text-align: center">添加mockserver端口</h3>
+            <form method="POST" style="margin-left: 40%" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">项目名称</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="请输入项目名称" name="project">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">接口名称</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="请输入接口名称" name="project">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">接口描述</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="请输入接口描述" name="project">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">接口路径</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="请输入接口路径" name="project">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">请求方式</label>
+                    <div class="col-sm-4">
+                        <select name="meth" class="select2-results"><option>get</option>
+                            <option>post</option><option>delete</option>
+                            <option>put</option><option>push</option></select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">类型参数</label>
+                    <div class="col-sm-4">
+                        <select name="type"><option>json</option>
+                            <option>xml</option></select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">请求头</label>
+                    <div class="col-sm-4">
+                        <textarea name="headers" style="width: 200px;height: 100px;"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">请求参数</label>
+                    <div class="col-sm-4">
+                        <textarea name="headers" style="width: 200px;height: 100px;"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">返回参数</label>
+                    <div class="col-sm-4">
+                        <textarea name="headers" style="width: 200px;height: 100px;"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">是否校验</label>
+                    <div class="col-sm-4">
+                        <select name="checkout"><option>是</option><option>否</option></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">是否校验请求头</label>
+                    <div class="col-sm-4">
+                        <select name="checkouheaders"><option>是</option><option>否</option></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">是否开启</label>
+                    <div class="col-sm-4">
+                        <select name="kaiqi"><option>是</option><option>否</option></select>
+                    </div>
+                </div>
+                <button class="btn btn-info col-sm-3" type="button" style="margin-left: 18%"> 添加</button>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+
+</body>
+</html>

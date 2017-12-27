@@ -9,7 +9,7 @@
 }
 
 .search {
-    margin-top: 75px;
+    margin-top: 65px;
 }
 
 .select{
@@ -41,4 +41,8 @@ body{
 
 .show-result{
     text-align: center;
+}
+
+.mock_add_button{
+    float: right;
 }
