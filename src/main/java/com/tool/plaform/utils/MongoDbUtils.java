@@ -29,11 +29,8 @@ public class MongoDbUtils {
     private static  String ip=myConfig.ip;
 
 
-    private static  String db=myConfig.db;
 
-
-	
-	public  static MongoDatabase  getMongo(){
+	public  static MongoDatabase  getMongo(String db){
 		MongoDatabase mongoDatabase=null;
 		try {  
 	        //连接到MongoDB服务 如果是远程连接可以替换“localhost”为服务器所在IP地址  
@@ -58,10 +55,10 @@ public class MongoDbUtils {
 		return mongoDatabase; 
 	}
 	
-    public static boolean insertOne(String coll, BasicDBObject obj) {
+    public static boolean insertOne(String coll,String db, BasicDBObject obj) {
         long start = System.currentTimeMillis();
         try {
-        	MongoDbUtils.getInstance().getColl(coll).insertOne(Document.parse(obj.toString()));
+        	MongoDbUtils.getInstance().getColl(coll,db).insertOne(Document.parse(obj.toString()));
         } catch (Throwable e) {
         	System.err.println("coll:"+coll+", insertOne db exception: " + e.getMessage()+e);
             return false;
@@ -72,10 +69,10 @@ public class MongoDbUtils {
         return true;
     }
 	
-    public static boolean updateOne(String coll, BasicDBObject query, BasicDBObject obj) {
+    public static boolean updateOne(String coll,String db, BasicDBObject query, BasicDBObject obj) {
         long start = System.currentTimeMillis();
         try {
-        	MongoDbUtils.getInstance().getColl(coll).updateOne(query, obj);
+        	MongoDbUtils.getInstance().getColl(coll,db).updateOne(query, obj);
         } catch (Throwable e) {
             return false;
         } finally {
@@ -91,8 +88,8 @@ public class MongoDbUtils {
      * @param query   查询条件
      * @return  MongoCursor<Document>
      */
-    public static MongoCursor<Document> find(String coll, BasicDBObject query) {
-        return find(coll, query, null);
+    public static MongoCursor<Document> find(String coll,String db, BasicDBObject query) {
+        return find(coll, db,query, null);
     }
     
     /**
@@ -103,14 +100,14 @@ public class MongoDbUtils {
      * @param orderby 排序规则
      * @return  MongoCursor<Document>
      */
-    public static MongoCursor<Document> find(String coll, BasicDBObject query, BasicDBObject orderby) {
+    public static MongoCursor<Document> find(String coll,String db ,BasicDBObject query, BasicDBObject orderby) {
         long start = System.currentTimeMillis();
         MongoCursor<Document> cursor = null;
         try {
             if (orderby != null) {
-                cursor = MongoDbUtils.getInstance().getColl(coll).find(query).sort(orderby).iterator();
+                cursor = MongoDbUtils.getInstance().getColl(coll,db).find(query).sort(orderby).iterator();
             } else {
-                cursor = MongoDbUtils.getInstance().getColl(coll).find(query).iterator();
+                cursor = MongoDbUtils.getInstance().getColl(coll,db).find(query).iterator();
             }
         } catch (Throwable e) {
             System.err.println("coll:"+coll+", query:"+query+", find db exception: " + e.getMessage()+e);
@@ -120,15 +117,15 @@ public class MongoDbUtils {
         }
         return cursor;
     }
-    public static BasicDBObject findOne(String coll, BasicDBObject query, BasicDBObject orderby) {
+    public static BasicDBObject findOne(String coll, String db,BasicDBObject query, BasicDBObject orderby) {
         long start = System.currentTimeMillis();
         BasicDBObject resObj = null;
         try {
             Document doc = null;
             if (orderby != null) {
-                doc = MongoDbUtils.getInstance().getColl(coll).find(query).sort(orderby).first();
+                doc = MongoDbUtils.getInstance().getColl(coll,db).find(query).sort(orderby).first();
             } else {
-                doc = MongoDbUtils.getInstance().getColl(coll).find(query).first();
+                doc = MongoDbUtils.getInstance().getColl(coll,db).find(query).first();
             }
             if (doc != null) {
                 resObj = (BasicDBObject)JSON.parse(doc.toJson());
@@ -151,7 +148,7 @@ public class MongoDbUtils {
 	        return SingletonClassInstance.instance;
 	    }
 	
-	  public MongoCollection<Document> getColl(String coll) {
-	        return getMongo().getCollection(coll);
+	  public MongoCollection<Document> getColl(String coll,String db) {
+	        return getMongo(db).getCollection(coll);
 	    }
 }

@@ -4,8 +4,6 @@ import com.tool.plaform.dao.TestToolsDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Method;
-import java.util.Map;
 
 /*
 * post请求必须要要使用RestController
@@ -22,11 +20,16 @@ public class TestToolsController {
     TestToolsDao testToolsDao=new TestToolsDao();
 
     @RequestMapping(value = "/update" ,method = RequestMethod.POST)
-    public String updateLoanDabaBase(@RequestParam(value = "id", required = true) String id){
-        System.out.println("===============id："+id);
-        return id;
+    public boolean updateLoanDabaBase(@RequestParam(value = "id", required = true) String id,
+                                      @RequestParam(value = "d",required = true)String data){
+        String database="";
+        if(data.equals("stat")){
+            database="QueueStat";
+        }else if(data.equals("apply")){
+            database="QueueApply";
+        }
+        boolean isSccess=testToolsDao.save(id,database);
+        return isSccess;
     }
-
-
 
 }

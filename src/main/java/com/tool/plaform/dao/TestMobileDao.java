@@ -3,6 +3,7 @@ package com.tool.plaform.dao;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCursor;
 import com.tool.plaform.domain.TestPlaform;
+import com.tool.plaform.myConfig;
 import com.tool.plaform.utils.MongoDbUtils;
 import org.bson.Document;
 
@@ -13,7 +14,7 @@ public class TestMobileDao {
 
     public List<TestPlaform> findAllTestMobile(){
         BasicDBObject query=new BasicDBObject();
-        MongoCursor<Document> cursor=MongoDbUtils.find("TestMobile",query);
+        MongoCursor<Document> cursor=MongoDbUtils.find("TestMobile", myConfig.db_thirdparty,query);
         List<TestPlaform>  list=parseTestPlaform(cursor);
         return list;
     }
@@ -22,7 +23,7 @@ public class TestMobileDao {
 
         BasicDBObject query=new BasicDBObject();
         query.append("型号",plaform);
-        MongoCursor<Document> cursor=MongoDbUtils.find("TestMobile",query);
+        MongoCursor<Document> cursor=MongoDbUtils.find("TestMobile",myConfig.db_thirdparty,query);
         System.out.println(cursor);
         List<TestPlaform> list=parseTestPlaform(cursor);
         return list;
