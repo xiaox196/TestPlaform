@@ -1,17 +1,24 @@
 package com.tool.plaform.domain;
 
 public class Mock {
-    public String project="";
-    public String name="";
-    public String Apidescribe="";
-    public String method="";
-    public String type="";
-    public String ApiPath="";
-    public String updateTime="";
-    public String ischeck="";
-    public String stuts="";
-    public String creater="";
-    public String operator="";
+
+    public static final int GET_OPERATE = 0;
+    public static final int POST_OPERATE = 1;
+
+    public String project = "";
+    public String name = "";
+    public String Apidescribe = "";
+    public String method = "";
+    public String type = "";
+    public String ApiPath = "";
+    public String updateTime = "";
+    public String ischeck = "";
+    public String stuts = "";
+    public String creater = "";
+    public String operator = "";
+    public String returnUrl;
+    public String resultMsg;
+    public int operateCode = GET_OPERATE;
 
     public void setProject(String project) {
         this.project = project;
