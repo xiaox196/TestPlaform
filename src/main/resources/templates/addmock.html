@@ -31,29 +31,29 @@
     <div class="mockdata" style="margin-top: 75px">
         <div>
             <h3 style="text-align: center">添加mockserver端口</h3>
-            <form method="POST" style="margin-left: 40%" class="form-horizontal">
+            <form method="POST" style="margin-left: 40%" class="form-horizontal" th:action="@{/addmockdata}"  th:object="${mock}">
                 <div class="form-group">
                     <label class="col-sm-2 control-label">项目名称</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="请输入项目名称" name="project">
+                        <input type="text" class="form-control" placeholder="请输入项目名称"  th:field="*{project}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">接口名称</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="请输入接口名称" name="project">
+                        <input type="text" class="form-control" placeholder="请输入接口名称" th:field="*{name}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">接口描述</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="请输入接口描述" name="project">
+                        <input type="text" class="form-control" placeholder="请输入接口描述" th:field="*{Apidescribe}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">接口路径</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="请输入接口路径" name="project">
+                        <input type="text" class="form-control" placeholder="请输入接口路径" th:field="*{ApiPath}">
                     </div>
                 </div>
 
@@ -112,11 +112,10 @@
                         <select name="kaiqi"><option>是</option><option>否</option></select>
                     </div>
                 </div>
-                <button class="btn btn-info col-sm-3" type="button" style="margin-left: 18%"> 添加</button>
+                <button class="btn btn-info col-sm-3" type="submit" style="margin-left: 18%"> 添加</button>
             </form>
         </div>
     </div>
-
 
 </div>
 

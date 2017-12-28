@@ -1,17 +1,17 @@
 package com.tool.plaform.domain;
 
 public class Mock {
-    public String project;
-    public String name;
-    public String Apidescribe;
-    public String method;
-    public String type;
-    public String ApiPath;
-    public String updateTime;
-    public String ischeck;
-    public String stuts;
-    public String creater;
-    public String operator;
+    public String project="";
+    public String name="";
+    public String Apidescribe="";
+    public String method="";
+    public String type="";
+    public String ApiPath="";
+    public String updateTime="";
+    public String ischeck="";
+    public String stuts="";
+    public String creater="";
+    public String operator="";
 
     public void setProject(String project) {
         this.project = project;
