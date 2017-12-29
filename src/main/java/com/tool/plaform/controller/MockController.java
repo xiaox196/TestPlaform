@@ -12,14 +12,6 @@ public class MockController {
 
     @RequestMapping(value = "/mock/{applicationId}")
     public static String executeMock(@PathVariable("applicationId")  String applicationId,String param) {
-//        if (mock.operateCode == Mock.GET_OPERATE) {
-//            mock.returnUrl = "";
-//            mock.resultMsg="";
-//        } else if (mock.operateCode == Mock.POST_OPERATE) {
-//            mock.returnUrl = "";
-//
-//        }
-//        mockDao.addMockDataToDb(mock);
 
         return param;
     }

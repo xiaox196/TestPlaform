@@ -64,7 +64,6 @@ public class MockDao {
             if (cursor!=null)
                 cursor.close();
         }
-        System.out.println("list=="+list);
         return list;
     }
 }
