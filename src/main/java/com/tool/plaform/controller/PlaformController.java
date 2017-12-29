@@ -1,6 +1,8 @@
 package com.tool.plaform.controller;
 
+import com.tool.plaform.dao.MockDao;
 import com.tool.plaform.dao.TestMobileDao;
+import com.tool.plaform.domain.Mock;
 import com.tool.plaform.domain.TestPlaform;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +16,7 @@ import java.util.List;
 public class PlaformController {
 
     TestMobileDao dao = new TestMobileDao();
-
+    MockDao mockDao = new MockDao();
     @RequestMapping("/")
     public String index(Model model) {
         List<TestPlaform> testPlaforms = dao.findAllTestMobile();
@@ -37,6 +39,32 @@ public class PlaformController {
     @ModelAttribute
     TestPlaform setTestPlaform() {
         return new TestPlaform();
+    }
+
+    @ModelAttribute
+    Mock setmock() {
+        return new Mock();
+    }
+
+    @RequestMapping(value = "/mock")
+    public String getMockServer(Model model) {
+        List<Mock> list=mockDao.findMockDataAll();
+        for (Mock mock:list){
+            MockController.executeMock(mock.ApiPath,mock.resultMsg);
+        }
+        model.addAttribute("mockList", list);
+        return "mock";
+    }
+
+    @RequestMapping(value = "/addmock")
+    public String toMockHtml() {
+        return "addmock";
+    }
+
+    @RequestMapping(value = "/addmockdata", method = RequestMethod.POST)
+    public String addMockServer(Mock mock) {
+        mockDao.addMockDataToDb(mock);
+        return "mock";
     }
 
 }

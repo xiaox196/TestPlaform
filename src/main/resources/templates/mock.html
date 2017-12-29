@@ -41,9 +41,9 @@
         <div class="search">
             <form class="form-inline" method="post" >
                 <div class="form-group">
-                    <label class="sr-only" for="exampleInputAmount">Iphone8</label>
+                    <label class="sr-only" for="exampleInputAmount">Api</label>
                     <div class="input-group">
-                        <div class="input-group-addon">手机型号</div>
+                        <div class="input-group-addon">接口名称</div>
                         <input type="text" class="form-control" id="exampleInputAmount"  >
                     </div>
                 </div>
@@ -75,6 +75,25 @@
                 <th>操作</th>
             </tr>
             </thead>
+
+            <tbody>
+            <!--dddd-->
+            <tr th:each="mock: ${mockList}">
+                <td th:text="${mock.project}">mock</td>
+                <td th:text="${mock.name}">mocktest</td>
+                <td th:text="${mock.Apidescribe}">test</td>
+                <td>
+                    <a th:href="@{/mock/${mock.ApiPath}}"></a>
+                </td>
+                <td th:text="${mock.method}">get</td>
+                <td th:text="${mock.type}">text</td>
+                <td th:text="${mock.updateTime}">2017-12-29 09:46:36</td>
+                <td th:text="${mock.ischeck}">是</td>
+                <td th:text="${mock.stuts}">在用</td>
+                <td th:text="${mock.creater}">alun</td>
+                <td th:text="${mock.operator}">add</td>
+            </tr>
+            </tbody>
         </table>
     </div>
 </div>

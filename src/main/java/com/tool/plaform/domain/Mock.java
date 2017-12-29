@@ -11,7 +11,7 @@ public class Mock {
     public String method = "";
     public String type = "";
     public String ApiPath = "";
-    public String updateTime = "";
+    public long updateTime = 0;
     public String ischeck = "";
     public String stuts = "";
     public String creater = "";
@@ -19,6 +19,18 @@ public class Mock {
     public String returnUrl;
     public String resultMsg;
     public int operateCode = GET_OPERATE;
+
+    public void setResultMsg(String resultMsg) {
+        this.resultMsg = resultMsg;
+    }
+
+    public String getReturnUrl() {
+        return returnUrl;
+    }
+
+    public String getResultMsg() {
+        return resultMsg;
+    }
 
     public void setProject(String project) {
         this.project = project;
@@ -44,7 +56,7 @@ public class Mock {
         ApiPath = apiPath;
     }
 
-    public void setUpdateTime(String updateTime) {
+    public void setUpdateTime(long updateTime) {
         this.updateTime = updateTime;
     }
 
@@ -88,7 +100,7 @@ public class Mock {
         return ApiPath;
     }
 
-    public String getUpdateTime() {
+    public long getUpdateTime() {
         return updateTime;
     }
 
