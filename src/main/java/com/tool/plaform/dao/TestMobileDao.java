@@ -2,7 +2,7 @@ package com.tool.plaform.dao;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCursor;
-import com.tool.plaform.domain.TestPlaform;
+import com.tool.plaform.entity.TestPlaform;
 import com.tool.plaform.myConfig;
 import com.tool.plaform.utils.MongoDbUtils;
 import org.bson.Document;

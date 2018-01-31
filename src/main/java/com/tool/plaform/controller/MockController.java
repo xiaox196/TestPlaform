@@ -1,7 +1,7 @@
 package com.tool.plaform.controller;
 
 import com.tool.plaform.dao.MockDao;
-import com.tool.plaform.domain.Mock;
+import com.tool.plaform.entity.Mock;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

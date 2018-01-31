@@ -2,8 +2,8 @@ package com.tool.plaform.controller;
 
 import com.tool.plaform.dao.MockDao;
 import com.tool.plaform.dao.TestMobileDao;
-import com.tool.plaform.domain.Mock;
-import com.tool.plaform.domain.TestPlaform;
+import com.tool.plaform.entity.Mock;
+import com.tool.plaform.entity.TestPlaform;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;

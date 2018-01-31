@@ -1,6 +1,4 @@
-package com.tool.plaform.domain;
-
-import org.springframework.web.bind.annotation.ModelAttribute;
+package com.tool.plaform.entity;
 
 import java.io.Serializable;
 

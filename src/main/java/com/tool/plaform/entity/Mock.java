@@ -1,4 +1,4 @@
-package com.tool.plaform.domain;
+package com.tool.plaform.entity;
 
 public class Mock {
 
