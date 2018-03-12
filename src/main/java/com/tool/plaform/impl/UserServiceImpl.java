@@ -30,7 +30,12 @@ public class UserServiceImpl implements UserService {
         {
             throw new IllegalArgumentException("用户密码不能为空");
         }
-
+        UserQuery newUser = new UserQuery();
+        newUser.setLoginName(user.getName());
+        User otherUser=userMapper.queryUserByLoginName(newUser);
+        if(otherUser!=null){
+            throw new IllegalArgumentException("用户名已经存在");
+        }
         return userMapper.insert(user);
     }
 

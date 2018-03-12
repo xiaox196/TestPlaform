@@ -46,7 +46,6 @@
         </sqlMapGenerator>
 
 
-
         <!-- 对应的dao接口 -->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.tool.plaform.dao" targetProject="src/main/java" >
             <property name="enableSubPackages" value="true"/>
