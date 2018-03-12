@@ -12,13 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
+    /**
+     *
+     */
     @Autowired
     UserService userService;
 
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     public ApiResult<User> saveUser(@RequestBody User user){
-        user.setEnable(true);
-        user.setPassword("123456");
+
+        userService.insert(user);
         return ApiResult.success(user);
     }
 }

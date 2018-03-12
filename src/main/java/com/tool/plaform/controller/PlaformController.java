@@ -31,6 +31,11 @@ public class PlaformController {
         return "index";
     }
 
+    @RequestMapping(value = "/register",method = RequestMethod.GET)
+    public String register(){
+        return "register";
+    }
+
     @RequestMapping(value = "/testshow",method = RequestMethod.GET)
     public String show(){
         return "test";

@@ -7,7 +7,6 @@ import com.tool.plaform.utils.UpdatePasswordInput;
 import java.util.List;
 
 public interface UserService {
-
     int insert(User user);
     int updateUser(User user);
     User queryUserById(int id);

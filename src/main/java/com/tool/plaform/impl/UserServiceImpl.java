@@ -1,26 +1,37 @@
 package com.tool.plaform.impl;
 
+import com.tool.plaform.dao.UserMapper;
 import com.tool.plaform.entity.User;
 import com.tool.plaform.entity.UserQuery;
 import com.tool.plaform.service.UserService;
 import com.tool.plaform.utils.UpdatePasswordInput;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    /**
+     *
+     */
+    @Autowired
+    UserMapper userMapper;
+
     @Override
     public int insert(User user) {
-        if (user.getName().isEmpty())
+        if (user.getName().isEmpty()||user.getName().equals(""))
         {
             throw new IllegalArgumentException("登录名称不能为空");
         }
-        if (user.getPassword().isEmpty())
+        if (user.getPassword().isEmpty()||user.getPassword().equals(""))
         {
             throw new IllegalArgumentException("用户密码不能为空");
         }
-        return 0;
+
+        return userMapper.insert(user);
     }
 
     @Override
