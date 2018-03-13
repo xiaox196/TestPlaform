@@ -27,11 +27,16 @@ body{
 }
 .experl {
     margin-top: 80px;
-    float: right;
+
 }
 .search-button{
-    float: left;
 
+
+
+}
+
+.btn-group{
+    float: right;
 
 }
 
@@ -44,5 +49,5 @@ body{
 }
 
 .mock_add_button{
-    float: right;
+
 }

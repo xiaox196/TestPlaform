@@ -8,47 +8,6 @@
     <link rel="stylesheet" href="../static/css/mystyle.css"/>
 </head>
 
-<script type="text/javascript">
-
-
-      window.onload=function(){
-          var button_stat=document.getElementById("button_stat");
-          var search_input=document.getElementById("search_input");
-          var button_apply=document.getElementById("button_apply");
-          var host="http://localhost:4501";
-
-          button_stat.onclick= function(){
-
-              $.ajax({
-                  url:host+"/update",
-                  type:"POST",
-                  data:"id="+search_input.value+"&"+"d=stat",
-                  success:function(result){
-                      if ( result) {
-                          $("#showresult").text("插入Stat数据成功");
-                      } else {
-                          $("#showresult").text("插入Stat数据失败");
-                      }
-                  }
-              });
-          };
-
-          button_apply.onclick=function(){
-              $.ajax({
-                  url:host+"/update",
-                  type:"POST",
-                  data:"id="+search_input.value+"&"+"d=apply",
-                  success:function(result){
-                      if ( result) {
-                          $("#showresult").text("插入Apply数据成功");
-                      } else {
-                          $("#showresult").text("插入Apply数据失败");
-                      }
-                  }
-              });
-          };
-      };
-</script>
 <body >
 
 
@@ -71,54 +30,43 @@
 </div>
 
 
-<div class="experl">
-    <div>
+<div class="experl" >
+    <div >
         <!-- Split button -->
-        <div class="btn-group">
+        <div class="btn-group" >
             <button type="button" class="btn btn-danger">环境选择</button>
             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" >
                 <li><a href="#">I1</a></li>
                 <li><a href="#">I2</a></li>
                 <li><a href="#">I3</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li><a href="#">I4</a></li>
+                <li><a href="#">I5</a></li>
             </ul>
+
+
         </div>
+
+        <div style="clear: both"></div>
     </div>
 </div>
 
-<div class="search-button ">
-<form name="form_button" method="post" action="" id="form_button">
-    <div class="input-group col-lg-4  ">
-        <input id="search_input" name="search_input" type="text" class="form-control" placeholder="loanId..." onclick="" >
-        <span class="input-group-btn">
-            <button id="button_stat" name="button_stat" class="btn btn-default"  type="button">跑Stat</button>
-            <button id="button_apply" class="btn btn-default" type="button">跑Apply</button>
-        </span>
-    </div><!-- /input-group -->
-    <div  class="show-result">
-        <p id="showresult">测试结果</p>
+<div >
+    <div>
+        <form class="form-inline">
+            <label class="col-md-3 control-label">重跑订单</label>
+            <input th:type="" class="col-md-4  form-control" placeholder="订单号">
+
+            <button class="col-md-1 btn-primary">重跑QSTAT</button>
+            <button class="col-md-1 btn-info">重跑APPLY</button>
+        </form>
     </div>
-</form>
 
-</div><!-- /.col-lg-6 -->
+</div>
 
-
-
-
-<script>
-    function  is_submit(value) {
-        var form_button=$("form_button");
-        if(value==1){
-            $("#form_button").attr("action","/update")
-            form_button.submit();
-        }
-    }
-</script>
 
 <script src="../static/js/jquery.min.js"></script>
 <script src="../static/js/bootstrap.js"></script>

@@ -1,5 +1,6 @@
 package com.tool.plaform.controller;
 
+import com.mongodb.BasicDBObject;
 import com.tool.plaform.dao.TestToolsDao;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -17,19 +18,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 
 public class TestToolsController {
-    TestToolsDao testToolsDao=new TestToolsDao();
+//    TestToolsDao testToolsDao=new TestToolsDao();
 
-    @RequestMapping(value = "/update" ,method = RequestMethod.POST)
-    public boolean updateLoanDabaBase(@RequestParam(value = "id", required = true) String id,
-                                      @RequestParam(value = "d",required = true)String data){
-        String database="";
-        if(data.equals("stat")){
-            database="QueueStat";
-        }else if(data.equals("apply")){
-            database="QueueApply";
+    @RequestMapping(value = "/loan/replay" ,method = RequestMethod.GET)
+    public boolean updateLoanDabaBase(@RequestParam(value = "env") String env,@RequestParam(value = "loanId") String loanId){
+        boolean isAdd=TestToolsDao.save(loanId,env);
+        if(isAdd){
+            return true;
         }
-        boolean isSccess=testToolsDao.save(id,database);
-        return isSccess;
+        return false;
     }
 
 }

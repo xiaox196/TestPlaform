@@ -11,10 +11,10 @@ public class TestToolsDao {
    * 2.代表 stat
    * */
 
-    public static boolean save(String id,String data){
+    public static boolean save(String id,String which){
         BasicDBObject obj = QueueLoanInfo(id);
         if(obj!=null){
-            SaveToQueueStat(obj,data);
+            SaveToQueueStat(obj,which);
             return true;
         }else{
             System.out.println("数据库里面不存在这个订单的数据");
@@ -57,7 +57,7 @@ public class TestToolsDao {
         query.append("account", account);
         query.append("platform", platform);
         query.append("applyTime", 1493807358);
-        query.append("sourceServer", "test");
+        query.append("sourceServer", which);
         query.append("status", 0);
         query.append("productId", 1000);
         query.append("tryCount", 0);
