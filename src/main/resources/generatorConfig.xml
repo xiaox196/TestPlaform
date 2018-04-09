@@ -52,7 +52,7 @@
         </javaClientGenerator>
 
         <!-- 表名对应生成的实体 -->
-        <table tableName="user" domainObjectName="User"
+        <table tableName="api" domainObjectName="Api"
             enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
             selectByExampleQueryId="false"> </table>
     </context>

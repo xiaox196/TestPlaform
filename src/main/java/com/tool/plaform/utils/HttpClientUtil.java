@@ -66,7 +66,6 @@ public class HttpClientUtil {
      * <p>
      * 参数URL说明<br>
      * Get请求的参数请自己拼装好再传入，如果有中文请先进行URLEncode后再拼装<br>
-     * 例：http://127.0.0.1:9030/tools/bairong?account=17238468229&cnid=150621197501067713&name=%E5%90%B4%E5%85%83%E4%B9%8B&occupation=12&product=PSBC-Staff&usecache=false
      * </p>
      * @param url  URL地址
      * @param timeOut 超时时间，毫秒

@@ -1,4 +1,11 @@
 package com.tool.plaform.service;
 
-public class ApiService {
+import com.tool.plaform.entity.Api;
+
+import java.util.List;
+
+public interface ApiService {
+    public int insert(Api api);
+    public Api queryApiByparam(String param);
+    public List<Api> findAllApi();
 }
