@@ -8,4 +8,7 @@ public interface ApiService {
     public int insert(Api api);
     public Api queryApiByparam(String param);
     public List<Api> findAllApi();
+    public String apiTest(Api api);
+    int updateByPrimaryKey(Api record);
+    Api selectByPrimaryKey(Integer id);
 }
