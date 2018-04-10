@@ -40,8 +40,8 @@ public class ApiController {
 
 
     @RequestMapping(value = "/test",method = RequestMethod.POST)
-    public ApiResult<String> doTest(@RequestBody Api api){
+    public String doTest(@RequestBody Api api){
         String result=apiService.apiTest(api);
-        return ApiResult.success(result);
+        return result;
     }
 }

@@ -1,13 +1,13 @@
 # TestPlaform
 
-测试平台
+# 测试平台
 使用了spring boot + thymeleaf + bootstrap
 
 第一阶段先增加设备管理
 遇到的问题：
-1.加入了thymeleaf后 html无法启动，
+## 1.加入了thymeleaf后 html无法启动，
 
-2. mybatis新增一个自定义查询需要自己加如：
+## 2.mybatis新增一个自定义查询需要自己加如：
   <select id="queryApiByParam" resultType="com.tool.plaform.entity.User" parameterType="com.tool.plaform.entity.UserQuery">
     select
     id,name,password
@@ -20,7 +20,7 @@
   </select>
   
   
-3.遇到问题  
+## 3.遇到问题  
 Description:
 Field apiService in com.tool.plaform.controller.ApiController required a bean of type 'com.tool.plaform.service.ApiService' that could not be found.
 Action:
@@ -30,7 +30,9 @@ Process finished with exit code 0
 解决办法：
 忘记加服务service
 
-4. mybatis 新增一个表获取修改一个表，需要只对该表进行操作，只需要在generatorconfig.xml
+## 4.post 请求数组采用bean list形式
+
+## 4. mybatis 新增一个表获取修改一个表，需要只对该表进行操作，只需要在generatorconfig.xml
 加入如下一个：
   <!-- 表名对应生成的实体 -->
         <table tableName="api" domainObjectName="Api"
