@@ -1,13 +1,16 @@
 package com.tool.plaform.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.tool.plaform.dao.ApiMapper;
 import com.tool.plaform.entity.Api;
 import com.tool.plaform.service.ApiService;
 import com.tool.plaform.utils.HttpClientUtil;
+import com.tool.plaform.vo.ApiVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ApiServiceImpl implements ApiService {
@@ -40,16 +43,24 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public String apiTest(Api api) {
+    public String apiTest(ApiVo apiVo) {
+        Api api = new Api();
+        api.setExpect(apiVo.getExpect());
+        Map paramsMap = apiVo.getParams();
+        String params = JSON.toJSONString(paramsMap);
+        api.setParam(params);
+
         String result=null;
-        String url=api.getUrl();
+        String url=apiVo.getUrl();
         String param=api.getParam();
-        int port=api.getPort();
-        String rootUrl=api.getRooturl();
-        String method=api.getMethod();
-        url=buildUrl(rootUrl,url,port,param);
-        if(method.equals("get")){
+        int port=apiVo.getPort();
+        String rootUrl=apiVo.getRootUrl();
+        String method=apiVo.getMethod();
+        url=buildUrl(rootUrl,url,port,param,method);
+        if(method.equalsIgnoreCase("get")){
             result=HttpClientUtil.get(url,5000);
+        }else if(method.equalsIgnoreCase("post")){
+            result=HttpClientUtil.post(url,param,5000);
         }
         return result;
     }
@@ -64,13 +75,18 @@ public class ApiServiceImpl implements ApiService {
         return apiMapper.selectByPrimaryKey(id);
     }
 
-    public static  String buildUrl(String rootUrl,String url,int port,String param){
+    public static  String buildUrl(String rootUrl,String url,int port,String param,String method){
         if(!rootUrl.startsWith("http")){
             rootUrl="http://"+rootUrl;
         }
-        url =rootUrl+":"+port+url+"?"+param;
-        System.out.println("=========");
-        System.out.println("request url:"+url);
+
+        if(method.equalsIgnoreCase("get")){
+            url =rootUrl+":"+port+url+"?"+param;
+        }else if(method.equalsIgnoreCase("post")){
+            url =rootUrl+":"+port+url;
+        }
+        System.out.println("===================================================");
+        System.out.println("request method:"+method+" request url:"+url+" request param:"+param);
         return url;
     }
 }
