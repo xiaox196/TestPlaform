@@ -7,6 +7,7 @@ public class ApiVo {
     private String rootUrl;
 
     private String url;
+    private int id;
 
     private Map params;
 
@@ -17,6 +18,14 @@ public class ApiVo {
     private String expect;
     private int port;
     private String method;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public void setPort(int port) {
         this.port = port;

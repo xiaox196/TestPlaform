@@ -32,6 +32,8 @@ Process finished with exit code 0
 
 ## 4.post 请求数组采用bean list形式
 ## 5. 加入vo层  Value Object，用于和前端解耦
+## 6. IDEA使用 @Autowired和@Resource时报错
+ 解决办法：https://blog.csdn.net/u010679782/article/details/52094893
 ## 5. mybatis 新增一个表获取修改一个表，需要只对该表进行操作，只需要在generatorconfig.xml
 加入如下一个：
   <!-- 表名对应生成的实体 -->

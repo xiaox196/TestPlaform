@@ -2,13 +2,16 @@ package com.tool.plaform.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.tool.plaform.dao.ApiMapper;
+import com.tool.plaform.dao.ResultMapper;
 import com.tool.plaform.entity.Api;
+import com.tool.plaform.entity.Result;
 import com.tool.plaform.service.ApiService;
 import com.tool.plaform.utils.HttpClientUtil;
 import com.tool.plaform.vo.ApiVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +20,9 @@ public class ApiServiceImpl implements ApiService {
 
     @Autowired
     ApiMapper apiMapper;
+
+    @Autowired
+    ResultMapper resultMapper;
 
     @Override
     public int insert(Api api) {
@@ -62,6 +68,13 @@ public class ApiServiceImpl implements ApiService {
         }else if(method.equalsIgnoreCase("post")){
             result=HttpClientUtil.post(url,param,5000);
         }
+
+        Result testRusult=new Result();
+        testRusult.setCreatertime(new Timestamp(System.currentTimeMillis()));
+        testRusult.setHttpid(apiVo.getId());
+        testRusult.setResult(result);
+        testRusult.setUpdatetime(new Timestamp(System.currentTimeMillis()));
+        resultMapper.insert(testRusult);
         return result;
     }
 
