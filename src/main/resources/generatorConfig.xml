@@ -23,9 +23,9 @@
         <!-- 数据库连接 -->
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
-                connectionURL="jdbc:mysql://localhost:3306/plaform"
+                connectionURL="jdbc:mysql://192.168.130.10:3306/engine_db2"
                 userId="root"
-                password="123456">
+                password="root">
         </jdbcConnection>
         <!-- 指定生成的类型为java类型，避免数据库中number等类型字段 -->
         <javaTypeResolver>
@@ -52,7 +52,7 @@
         </javaClientGenerator>
 
         <!-- 表名对应生成的实体 -->
-        <table tableName="result" domainObjectName="Result"
+        <table tableName="rule" domainObjectName="Rule"
             enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
             selectByExampleQueryId="false"> </table>
     </context>
