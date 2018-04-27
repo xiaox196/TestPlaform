@@ -2,7 +2,6 @@ package com.tool.plaform.impl;
 
 import com.tool.plaform.dao.RuleMapper;
 import com.tool.plaform.entity.Rule;
-import com.tool.plaform.entity.RuleWithBLOBs;
 import com.tool.plaform.service.RuleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class RuleServiceImpl implements RuleService{
     }
 
     @Override
-    public Rule queryApiByparam(String param) {
+    public Rule queryRuleByCode(String code) {
         return null;
     }
 

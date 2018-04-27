@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RuleService {
     public int insert(Rule rule);
-    public Rule queryApiByparam(String param);
+    public Rule queryRuleByCode(String code);
     public List<Rule> findAllRule();
     int updateByPrimaryKey(Rule record);
     Rule selectByPrimaryKey(Integer id);
